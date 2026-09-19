@@ -56,7 +56,6 @@ ol {
 .content {
   display: flex;
   width: 1140px;
-  padding: 133px 30px;
   gap: 30px;
   align-items: flex-end;
 }
@@ -68,6 +67,7 @@ ol {
 }
 
 .content__list-container {
+  position: relative;
   height: 298px;
   overflow: auto;
   display: flex;
@@ -92,8 +92,10 @@ ol {
 }
 
 .result__video-container {
+  position: relative;
   width: 711px;
   height: 386px;
+  margin-bottom: 16px;
 }
 
 .result__video {
@@ -109,9 +111,23 @@ ol {
   gap: 30px;
 }
 
+.content__list-item {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
 .content__card-link {
+  display: block;
   text-decoration: none;
   color: #fff;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__card-link:active {
+  background-color: #545050;
 }
 
 .content__video-card {
@@ -128,11 +144,13 @@ ol {
 
 .content__video-card-description-container {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
 }
 
 .content__video-card-title {
-  margin-bottom: 6px;
-  width: 193px;
   font-size: 30px;
   line-height: 100%;
   font-weight: bold;
@@ -140,6 +158,12 @@ ol {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.content__video-card-title::after {
+  display: block;
+  content: "";
+  border-bottom: 2px solid transparent;
 }
 
 .content__video-card-description {
@@ -151,8 +175,155 @@ ol {
   overflow: hidden;
 }
 
+.content__video-card-description::after {
+  display: block;
+  content: "";
+  border-bottom: 2px solid transparent;
+}
+
+.content__card-link:hover .content__video-card-title::after {
+  border-bottom-color: #fff;
+}
+
+.content__card-link:hover .content__video-card-description::after {
+  border-bottom-color: #fff;
+}
+
+.content__card-link:active .content__video-card-title::after {
+  border-bottom-color: transparent;
+}
+
+.content__card-link:active .content__video-card-description::after {
+  border-bottom-color: transparent;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 2px solid #fff;
+}
+
 .search-form__fieldset-title {
   font-size: 18px;
   font-weight: normal;
   margin-bottom: 5px;
 }
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__fieldset {
+  border: none;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.search-form__textfield {
+  width: 225px;
+  background-color: transparent;
+  font-size: 18px;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  color: #fff;
+  border: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;;
+  appearance: none;
+}
+
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255 / 0.7);
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+}
+
+.search-form__pseudo-checkbox {
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+  padding: 1px;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: "";
+  display: block;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+
+.search-form__label:hover .search-form__label-text {
+  border-bottom: 1px solid #fff;
+}
+
+.button {
+  appearance: none;
+  border: 1px solid #fff;
+  padding: 5.5px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.search-form__submit-button {
+  width: 194px;
+  align-self: flex-end;
+}
+
+.more-button {
+  width: 100%;
+}
+
+.button .button__text {
+  border-bottom: 1px solid transparent;
+}
+
+.button:hover .button__text {
+  border-bottom-color: #fff;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:active .button__text {
+  border-bottom-color: transparent;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
