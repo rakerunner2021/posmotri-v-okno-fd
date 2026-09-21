@@ -207,7 +207,7 @@ ol {
 }
 
 .content__card-link:focus-visible {
-  outline: 2px solid #fff;
+  outline: 1px solid #fff;
 }
 
 .search-form__fieldset-title {
@@ -293,6 +293,7 @@ ol {
 
 .button {
   appearance: none;
+  font-family: 'Fira Sans Condensed', sans-serif;
   border: 1px solid #fff;
   padding: 5.5px 0;
   font-size: 18px;
@@ -311,20 +312,15 @@ ol {
   width: 100%;
 }
 
-.button .button__text {
-  border-bottom: 1px solid transparent;
-}
-
-.button:hover .button__text {
-  border-bottom-color: #fff;
+.button:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
 
 .button:active {
   background-color: #545050;
-}
-
-.button:active .button__text {
-  border-bottom-color: transparent;
+  text-decoration: none;
 }
 
 .button:focus-visible {
